@@ -89,4 +89,9 @@ public class SegmentTree<T> {
         return new SegmentTree<>(Integer::sum,
                 new LevelOrderTraversal());
     }
+
+    public static SegmentTree<Integer> getIntegerSumTreeCompressed() {
+        return new SegmentTree<>(Integer::sum,
+                new PreOrderTraversal());
+    }
 }
