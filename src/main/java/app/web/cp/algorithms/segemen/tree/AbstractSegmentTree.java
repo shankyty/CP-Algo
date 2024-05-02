@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.function.BinaryOperator;
 
 abstract public class AbstractSegmentTree<T> {
-    List<T> t;
+    protected List<T> t;
     protected int n;
     protected final BinaryOperator<T> merge;
     protected final Traversal traversal;
