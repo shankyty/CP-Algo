@@ -1,19 +1,21 @@
 package app.web.cp.algorithms.segemen.tree;
 
+import app.web.cp.algorithms.segemen.tree.traversal.Traversal;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.BinaryOperator;
 
-public class SegmentTree<T> {
+abstract public class AbstractSegmentTree<T> {
     List<T> t;
-    private int n;
-    private final BinaryOperator<T> merge;
-    private final Traversal traversal;
+    protected int n;
+    protected final BinaryOperator<T> merge;
+    protected final Traversal traversal;
 
 
-    public SegmentTree(BinaryOperator<T> merge,
-                       Traversal traversal) {
+    protected AbstractSegmentTree(BinaryOperator<T> merge,
+                               Traversal traversal) {
         this.merge = merge;
         this.traversal = traversal;
     }
@@ -84,14 +86,6 @@ public class SegmentTree<T> {
         }
     }
 
-
-    public static SegmentTree<Integer> getIntegerSumTree() {
-        return new SegmentTree<>(Integer::sum,
-                new LevelOrderTraversal());
-    }
-
-    public static SegmentTree<Integer> getIntegerSumTreeCompressed() {
-        return new SegmentTree<>(Integer::sum,
-                new PreOrderTraversal());
-    }
+    public abstract T query(int left,
+                            int right);
 }
