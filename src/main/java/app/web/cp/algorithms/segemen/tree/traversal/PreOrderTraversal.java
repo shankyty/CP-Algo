@@ -1,4 +1,4 @@
-package app.web.cp.algorithms.segemen.tree;
+package app.web.cp.algorithms.segemen.tree.traversal;
 
 public class PreOrderTraversal implements Traversal {
     @Override
